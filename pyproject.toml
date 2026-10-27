@@ -1,0 +1,32 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mambazero"
+version = "0.1.0"
+description = "Selective State Space Models (Mamba / S4) with Parallel Associative Scan from Pure Mathematical Primitives in NumPy"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Ayush Kandwal", email = "ayushkandwal2007@gmail.com" }
+]
+dependencies = [
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+]
+
+[project.scripts]
+mambazero = "mambazero.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mambazero"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
